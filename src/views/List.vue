@@ -4,25 +4,23 @@ import httpService from '@/services/HttpService';
 import Post from '@/components/Post.vue';
 
 const state = reactive({
-    postList: []
+  postList: [],
 });
 
 onMounted(() => {
-    findAll();
+  findAll();
 });
 
 const findAll = async () => {
-    const data = await httpService.findAll();
-    console.log('data:', data);
-    state.postList = data;
-}
+  const data = await httpService.postFindAll();
+  console.log('data:', data);
+  state.postList = data;
+};
 </script>
 
 <template>
-    <h1>List.vue</h1>    
-    <post v-for="item in state.postList" :key="item.id" :item="item"></post>
+  <h1>List.vue</h1>
+  <post v-for="item in state.postList" :key="item.id" :item="item"></post>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
