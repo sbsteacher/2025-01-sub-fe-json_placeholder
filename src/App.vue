@@ -12,10 +12,14 @@
       <main>
         <router-view />
       </main>
-      
+
     </div>
   </div>
 </template>
+
+<style>
+.pointer { cursor: pointer; }
+</style>
 
 <style scoped>
 
