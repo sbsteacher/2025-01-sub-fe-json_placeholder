@@ -5,7 +5,7 @@ const props = defineProps({
 </script>
 
 <template>
-    <div class="card">{{  props.item.body }}</div>
+    <div class="card">{{ props.item.body }}</div>
 </template>
 
 <style scoped>

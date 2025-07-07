@@ -1,6 +1,7 @@
 <script setup>
 import Post from '@/components/Post.vue';
 import Comment from '@/components/Comment.vue';
+import InputComment from '@/components/InputComment.vue';
 import { reactive, onMounted } from 'vue';
 import httpService from '@/services/HttpService';
 
@@ -32,7 +33,9 @@ onMounted(async () => {
   <!-- Post 컴포넌트 이용하여 화면에 내용을 출력해 주세요. -->
   <post :item="state.post" />
   <hr>
-  <h3>댓글들</h3>
+  <h3>댓글들</h3>  
+  <input-comment></input-comment>  
+  <hr>
   <comment v-for="item in state.comments" :item="item" :id="item.id"/>
 </template>
 
