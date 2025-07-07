@@ -26,6 +26,25 @@ onMounted(async () => {
     state.comments = commentData;
   }
 });
+
+const addComment = async comment => {
+  console.log('comment:', comment);  
+  const jsonBody = {
+    postId: state.post.id,
+    comment,
+    userId: 5
+  }
+  //const data = await httpService.postSave(jsonBody); //통신하고 응답 데이터를 받는다. 
+  const data = {
+    "postId": state.post.id,
+    "id": 12,
+    "name": "quo vero reiciendis velit similique earum",
+    "email": "Jayne_Kuhic@sydney.com",
+    "body": comment
+  };
+  state.comments.push(data);
+}
+
 </script>
 
 <template>
@@ -34,7 +53,7 @@ onMounted(async () => {
   <post :item="state.post" />
   <hr>
   <h3>댓글들</h3>  
-  <input-comment></input-comment>  
+  <input-comment @click-save="addComment"></input-comment>  
   <hr>
   <comment v-for="item in state.comments" :item="item" :id="item.id"/>
 </template>

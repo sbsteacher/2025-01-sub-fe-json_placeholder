@@ -1,14 +1,23 @@
 <script setup>
-const model = {
+import { reactive } from 'vue';
+
+const emit = defineEmits(['click-save']);
+
+const state = reactive({
     comment: ''
+});
+
+const addComment = () => {    
+    //emit 처리
+    emit('click-save', state.comment);    
+    
+    state.comment = '';    
 }
 </script>
 
 <template>
-    <label>댓글: <input type="text" v-model="model.comment"></label>
-    <button>저장</button>
+  <label>댓글: <input type="text" v-model="state.comment" @keyup.enter="addComment" placeholder="댓글"/></label>
+  <button @click="addComment">저장</button>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

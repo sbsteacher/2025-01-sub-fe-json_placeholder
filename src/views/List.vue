@@ -2,6 +2,7 @@
 import { reactive, onMounted } from 'vue';
 import httpService from '@/services/HttpService';
 import Post from '@/components/Post.vue';
+import InputPost from '@/components/InputPost.vue';
 
 const state = reactive({
   postList: [],
@@ -20,6 +21,7 @@ const findAll = async () => {
 
 <template>
   <h1>List.vue</h1>
+  <input-post></input-post>
   <post v-for="item in state.postList" :key="item.id" :item="item"></post>
 </template>
 
