@@ -13,7 +13,8 @@ class HttpService {
   }
 
   async postSave(jsonBody) {
-    
+    const res = await axios.post('/posts', jsonBody);
+    return res.data;
   }
 
   async commentSave(jsonBody) { //객체 to JSON

@@ -17,11 +17,17 @@ const findAll = async () => {
   console.log('data:', data);
   state.postList = data;
 };
+
+const addPost = async jsonBody => {
+  jsonBody.userId = 10;
+  const data = await httpService.postSave(jsonBody);
+  state.postList.unshift(data);
+}
 </script>
 
 <template>
   <h1>List.vue</h1>
-  <input-post></input-post>
+  <input-post @add-post="addPost"></input-post>
   <post v-for="item in state.postList" :key="item.id" :item="item"></post>
 </template>
 
